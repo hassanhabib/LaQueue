@@ -12,5 +12,6 @@ namespace LaQueue.Brokers.ApiServers
     public interface IApiServerBroker
     {
         void RegisterEventListener<T>(Func<T, ValueTask> eventHandler, string eventName);
+        void RunServer();
     }
 }
