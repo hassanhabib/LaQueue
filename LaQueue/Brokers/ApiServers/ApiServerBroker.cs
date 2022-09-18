@@ -23,5 +23,8 @@ namespace LaQueue.Brokers.ApiServers
 
         public void RegisterEventListener<T>(Func<T, ValueTask> eventHandler, string eventName) =>
             this.apiClient.CreatePublisherEndpoint(eventHandler, eventName);
+
+        public void RunServer() =>
+            this.apiClient.RunApiServer(url: connectionString);
     }
 }
