@@ -16,7 +16,7 @@ namespace LaQueue.Services.Foundations.EventPublishes
         public EventPublishService(IApiBroker apiBroker) =>
             this.apiBroker = apiBroker;
 
-        public async ValueTask<T> PublishEventAsync<T>(T request, string eventName) =>
-            await this.apiBroker.PostAsync(eventName, request);
+        public async ValueTask<T> PublishEventAsync<T>(T @event, string eventName) =>
+            await this.apiBroker.PostAsync(eventName, @event);
     }
 }

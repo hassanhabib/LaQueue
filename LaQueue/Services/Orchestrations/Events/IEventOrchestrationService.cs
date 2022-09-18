@@ -6,9 +6,9 @@
 
 using System.Threading.Tasks;
 
-namespace LaQueue.Services.Foundations.EventPublishes
+namespace LaQueue.Services.Orchestrations.Events
 {
-    public interface IEventPublishService
+    public interface IEventOrchestrationService
     {
         ValueTask<T> PublishEventAsync<T>(T @event, string eventName);
     }
