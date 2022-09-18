@@ -17,18 +17,26 @@ namespace LaQueue.Web.Tests.Unit.Services.Apis
         public void ShouldCreatePublisherEndpoint()
         {
             // given
-            var publisherFunctionMock = new Mock<Func<object, ValueTask>>();
-            Func<object, ValueTask> publisherFunction = publisherFunctionMock.Object;
+            var publisherFunctionMock =
+                new Mock<Func<object, ValueTask>>();
+            
+            Func<object, ValueTask> publisherFunction =
+                publisherFunctionMock.Object;
+            
             string randomEndpoint = GetRandomEndpoint();
             string inputEndpoint = randomEndpoint;
 
             // when
-            this.apiService.CreatePublisherEndpoint(publisherFunction, inputEndpoint);
+            this.apiService.CreatePublisherEndpoint(
+                publisherFunction,
+                inputEndpoint);
 
             // then
             this.apiBrokerMock.Verify(broker =>
-                broker.CreatePublisherEndpoint(publisherFunction, inputEndpoint),
-                    Times.Once);
+                broker.CreatePublisherEndpoint(
+                    publisherFunction,
+                    inputEndpoint),
+                        Times.Once);
 
             this.apiBrokerMock.VerifyNoOtherCalls();
         }
