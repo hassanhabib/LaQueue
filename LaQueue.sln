@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32819.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LaQueue", "LaQueue\LaQueue.csproj", "{3BFC5496-1F9F-4F02-B4AD-3BD3AC4A6938}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LaQueue", "LaQueue\LaQueue.csproj", "{3BFC5496-1F9F-4F02-B4AD-3BD3AC4A6938}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LaQueue.Web", "LaQueue.Web\LaQueue.Web.csproj", "{00F81DBE-75BB-4282-BCD6-0D0BE9B6FD73}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LaQueue.Web", "LaQueue.Web\LaQueue.Web.csproj", "{00F81DBE-75BB-4282-BCD6-0D0BE9B6FD73}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LaQueue.Web.Tests.Unit", "LaQueue.Web.Tests.Unit\LaQueue.Web.Tests.Unit.csproj", "{E3E5CFF8-868D-4607-9BA6-11C648444B37}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LaQueue.Web.Tests.Unit", "LaQueue.Web.Tests.Unit\LaQueue.Web.Tests.Unit.csproj", "{E3E5CFF8-868D-4607-9BA6-11C648444B37}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LaQueue.Tests.Manual", "LaQueue.Tests.Manual\LaQueue.Tests.Manual.csproj", "{187D8557-3690-4CB6-9B26-2B69C3BD499F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LaQueue.Tests.Manual", "LaQueue.Tests.Manual\LaQueue.Tests.Manual.csproj", "{187D8557-3690-4CB6-9B26-2B69C3BD499F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LaQueue.Tests.Unit", "LaQueue.Tests.Unit\LaQueue.Tests.Unit.csproj", "{AE8570FA-3D1E-42FA-B57F-59C5D20FEC9D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{187D8557-3690-4CB6-9B26-2B69C3BD499F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{187D8557-3690-4CB6-9B26-2B69C3BD499F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{187D8557-3690-4CB6-9B26-2B69C3BD499F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE8570FA-3D1E-42FA-B57F-59C5D20FEC9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE8570FA-3D1E-42FA-B57F-59C5D20FEC9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE8570FA-3D1E-42FA-B57F-59C5D20FEC9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE8570FA-3D1E-42FA-B57F-59C5D20FEC9D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
