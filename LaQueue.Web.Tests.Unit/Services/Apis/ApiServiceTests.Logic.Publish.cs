@@ -26,7 +26,11 @@ namespace LaQueue.Web.Tests.Unit.Services.Apis
             this.apiService.CreatePublisherEndpoint(publisherFunction, inputEndpoint);
 
             // then
+            this.apiBrokerMock.Verify(broker =>
+                broker.CreatePublisherEndpoint(publisherFunction, inputEndpoint),
+                    Times.Once);
 
+            this.apiBrokerMock.VerifyNoOtherCalls();
         }
     }
 }
