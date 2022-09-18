@@ -19,10 +19,10 @@ namespace LaQueue.Web.Tests.Unit.Services.Apis
             // given
             var publisherFunctionMock =
                 new Mock<Func<object, ValueTask>>();
-            
+
             Func<object, ValueTask> publisherFunction =
                 publisherFunctionMock.Object;
-            
+
             string randomEndpoint = GetRandomEndpoint();
             string inputEndpoint = randomEndpoint;
 
