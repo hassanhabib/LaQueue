@@ -42,6 +42,7 @@ namespace LaQueue.Tests.Unit.Services.Orchestrations.Events
                     Times.Once);
 
             this.eventPublishServiceMock.VerifyNoOtherCalls();
+            this.eventSubscriptionServiceMock.VerifyNoOtherCalls();
         }
     }
 }
