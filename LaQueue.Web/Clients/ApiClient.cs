@@ -4,8 +4,8 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
-using System.Threading.Tasks;
 using System;
+using System.Threading.Tasks;
 using LaQueue.Web.Brokers.Apis;
 using LaQueue.Web.Services.Apis;
 

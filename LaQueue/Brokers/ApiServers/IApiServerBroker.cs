@@ -7,11 +7,10 @@
 using System;
 using System.Threading.Tasks;
 
-namespace LaQueue.Web.Brokers.Apis
+namespace LaQueue.Brokers.ApiServers
 {
-    public interface IApiBroker
+    public interface IApiServerBroker
     {
-        void CreatePublisherEndpoint<T>(Func<T, ValueTask> publisherFunction, string endpoint);
-        void RunApi(string url);
+        void RegisterEventListener<T>(Func<T, ValueTask> eventHandler, string eventName);
     }
 }

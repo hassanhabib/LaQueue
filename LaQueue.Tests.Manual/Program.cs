@@ -1,4 +1,10 @@
-﻿using System;
+﻿// ---------------------------------------------------------------
+// Copyright (c) Hassan Habib All rights reserved.
+// Licensed under the MIT License.
+// See License.txt in the project root for license information.
+// ---------------------------------------------------------------
+
+using System;
 using System.Threading.Tasks;
 using LaQueue.Web.Clients;
 
@@ -13,7 +19,7 @@ ValueTask HandlerOfThings(Student student)
     DoSomethingWithStudent(student);
 
     return ValueTask.CompletedTask;
-} 
+}
 
 static void DoSomethingWithStudent(Student student) =>
     Console.WriteLine(student.Name);
