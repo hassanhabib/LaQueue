@@ -23,7 +23,7 @@ namespace LaQueue.Tests.Unit.Services.Orchestrations.Events
             this.eventPublishServiceMock = new Mock<IEventPublishService>();
             this.eventSubscriptionServiceMock = new Mock<IEventSubscriptionService>();
 
-            this.eventOrchestrationService = new EventOrchestrationsService(
+            this.eventOrchestrationService = new EventOrchestrationService(
                 eventPublishService: this.eventPublishServiceMock.Object,
                 eventSubscriptionService: this.eventSubscriptionServiceMock.Object);
         }

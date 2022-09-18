@@ -11,12 +11,12 @@ using LaQueue.Services.Foundations.EventSubscriptions;
 
 namespace LaQueue.Services.Orchestrations.Events
 {
-    public class EventOrchestrationsService : IEventOrchestrationService
+    public class EventOrchestrationService : IEventOrchestrationService
     {
         private readonly IEventPublishService eventPublishService;
         private readonly IEventSubscriptionService eventSubscriptionService;
 
-        public EventOrchestrationsService(
+        public EventOrchestrationService(
             IEventPublishService eventPublishService,
             IEventSubscriptionService eventSubscriptionService)
         {
