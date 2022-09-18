@@ -23,9 +23,7 @@ namespace LaQueue.Services.Orchestrations.Events
             this.eventSubscriptionService = eventSubscriptionService;
         }
 
-        public ValueTask<T> PublishEventAsync<T>(T @event, string eventName)
-        {
-            throw new System.NotImplementedException();
-        }
+        public async ValueTask<T> PublishEventAsync<T>(T @event, string eventName) =>
+            await this.eventPublishService.PublishEventAsync(@event, eventName);
     }
 }

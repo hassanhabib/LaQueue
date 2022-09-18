@@ -25,7 +25,7 @@ namespace LaQueue.Tests.Unit.Services.Orchestrations.Events
             string inputEventName = randomEventName;
 
             this.eventPublishServiceMock.Setup(service =>
-                service.PublishEventAsync(inputEventName, inputEvent))
+                service.PublishEventAsync(inputEvent, inputEventName))
                     .ReturnsAsync(postedEvent);
 
             // when
@@ -38,7 +38,7 @@ namespace LaQueue.Tests.Unit.Services.Orchestrations.Events
             actualEvent.Should().BeEquivalentTo(expectedEvent);
 
             this.eventPublishServiceMock.Verify(service =>
-                service.PublishEventAsync(inputEventName, inputEvent),
+                service.PublishEventAsync(inputEvent, inputEventName),
                     Times.Once);
 
             this.eventPublishServiceMock.VerifyNoOtherCalls();

@@ -10,6 +10,6 @@ namespace LaQueue.Services.Foundations.EventPublishes
 {
     public interface IEventPublishService
     {
-        ValueTask<T> PublishEventAsync<T>(T request, string eventName);
+        ValueTask<T> PublishEventAsync<T>(T @event, string eventName);
     }
 }
