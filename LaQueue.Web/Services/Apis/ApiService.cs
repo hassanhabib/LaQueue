@@ -17,9 +17,7 @@ namespace LaQueue.Web.Services.Apis
         public ApiService(IApiBroker apiBroker) =>
             this.apiBroker = apiBroker;
 
-        public void CreatePublisherEndpoint<T>(Func<T, ValueTask> publisherFunction, string endpoint)
-        {
-            throw new NotImplementedException();
-        }
+        public void CreatePublisherEndpoint<T>(Func<T, ValueTask> publisherFunction, string endpoint) =>
+            this.apiBroker.CreatePublisherEndpoint(publisherFunction, endpoint);
     }
 }
