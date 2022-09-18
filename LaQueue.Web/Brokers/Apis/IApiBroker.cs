@@ -13,6 +13,6 @@ namespace LaQueue.Web.Brokers.Apis
     public interface IApiBroker
     {
         void CreatePublisherEndpoint<T>(Func<T, ValueTask> publisherFunction, string endpoint);
-        void RunApi();
+        void RunApi(string url);
     }
 }

@@ -12,5 +12,6 @@ namespace LaQueue.Web.Services.Apis
     public interface IApiService
     {
         void CreatePublisherEndpoint<T>(Func<T, ValueTask> publisherFunction, string endpoint);
+        void RunApiServer(string url);
     }
 }
