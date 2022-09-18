@@ -4,7 +4,6 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
-using System;
 using System.Threading.Tasks;
 using LaQueue.Brokers.Apis;
 
@@ -17,9 +16,7 @@ namespace LaQueue.Services.Foundations.EventPublishes
         public EventPublishService(IApiBroker apiBroker) =>
             this.apiBroker = apiBroker;
 
-        public ValueTask<T> PublishEventAsync<T>(T request, string eventName)
-        {
-            throw new NotImplementedException();
-        }
+        public async ValueTask<T> PublishEventAsync<T>(T request, string eventName) =>
+            await this.apiBroker.PostAsync(eventName, request);
     }
 }
