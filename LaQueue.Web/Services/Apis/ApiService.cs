@@ -19,5 +19,8 @@ namespace LaQueue.Web.Services.Apis
 
         public void CreatePublisherEndpoint<T>(Func<T, ValueTask> publisherFunction, string endpoint) =>
             this.apiBroker.CreatePublisherEndpoint(publisherFunction, endpoint);
+
+        public void RunApiServer(string url) =>
+            this.apiBroker.RunApi(url);
     }
 }

@@ -28,6 +28,6 @@ namespace LaQueue.Web.Brokers.Apis
                 handler: async ([FromBody] T requestBody) => await publisherFunction(requestBody));
         }
 
-        public void RunApi() => this.webApplication.Run();
+        public void RunApi(string url) => this.webApplication.Run(url);
     }
 }
