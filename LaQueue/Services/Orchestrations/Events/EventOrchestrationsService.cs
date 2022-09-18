@@ -30,9 +30,7 @@ namespace LaQueue.Services.Orchestrations.Events
         public void SubscribeEventHandler<T>(Func<T, ValueTask> eventHandler, string eventName) =>
             this.eventSubscriptionService.RegisterEventHandler(eventHandler, eventName);
 
-        public void RunSubscriptionServer()
-        {
-            throw new NotImplementedException();
-        }
+        public void RunSubscriptionServer() =>
+            this.eventSubscriptionService.RunSubscriptionServer();
     }
 }
