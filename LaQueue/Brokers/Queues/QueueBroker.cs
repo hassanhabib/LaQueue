@@ -21,7 +21,7 @@ namespace LaQueue.Brokers.Queues
 
         public void RegisterEventListener(Func<Message, CancellationToken, Task> eventHandler, string eventName)
         {
-            this.queueClient = new QueueClient(this.connectionString, eventName);
+            this.queueClient = GetQueueClient(eventName);
             MessageHandlerOptions messageHandlerOptions = GetMessageHandlerOptions();
 
             Func<Message, CancellationToken, Task> listenerFunction =
@@ -29,6 +29,15 @@ namespace LaQueue.Brokers.Queues
 
             this.queueClient.RegisterMessageHandler(listenerFunction, messageHandlerOptions);
         }
+
+        public async ValueTask EnqueueMessageAsync(Message message, string eventName)
+        {
+            this.queueClient = GetQueueClient(eventName);
+            await this.queueClient.SendAsync(message);
+        }
+
+        private IQueueClient GetQueueClient(string eventName) =>
+            new QueueClient(this.connectionString, eventName);
 
         private Func<Message, CancellationToken, Task> CompleteQueueMessageAsync(
                Func<Message, CancellationToken, Task> eventHandler)
