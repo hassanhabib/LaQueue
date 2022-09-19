@@ -42,8 +42,17 @@ namespace LaQueue.Services.Orchestrations.Events
             };
         }
 
-        public void SubscribeEventHandler<T>(Func<T, ValueTask> eventHandler, string eventName) =>
-            this.eventSubscriptionService.RegisterEventHandler(eventHandler, eventName);
+        public void SubscribeEventHandler<T>(Func<T, ValueTask> eventHandler, string eventName)
+        {
+            if (this.connectionString.Contains("servicebus"))
+            {
+                this.externalEventService.RegisterEventHandler(eventHandler, eventName);
+            }
+            else
+            {
+                this.eventSubscriptionService.RegisterEventHandler(eventHandler, eventName);
+            }
+        }
 
         public void RunSubscriptionServer() =>
             this.eventSubscriptionService.RunSubscriptionServer();
