@@ -7,6 +7,7 @@
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using FluentAssertions;
 using Microsoft.Azure.ServiceBus;
 using Moq;
 using Xunit;
@@ -34,11 +35,14 @@ namespace LaQueue.Tests.Unit.Services.Foundations.ExternalEvents
             };
 
             // when
-            await this.externalEventService.PublishEventAsync<object>(
-                inputObjectEvent,
-                inputEventName);
+            object actualObjectEvent = 
+                await this.externalEventService.PublishEventAsync<object>(
+                    inputObjectEvent,
+                    inputEventName);
 
             // then
+            actualObjectEvent.Should().BeEquivalentTo(expectedObjectEvent);
+
             this.queueBrokerMock.Verify(broker =>
                 broker.EnqueueMessageAsync(It.Is(
                     SameMessageAs(expectedObjectEventMessage)), inputEventName),
