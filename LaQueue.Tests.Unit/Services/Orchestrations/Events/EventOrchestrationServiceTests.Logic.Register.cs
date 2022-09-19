@@ -46,7 +46,7 @@ namespace LaQueue.Tests.Unit.Services.Orchestrations.Events
                     eventHandler,
                     inputEventName),
                         Times.Once);
-            
+
             this.externalEventServiceMock.Verify(service =>
                 service.RegisterEventHandler(
                     eventHandler,
