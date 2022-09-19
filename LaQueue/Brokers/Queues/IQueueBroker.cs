@@ -14,5 +14,6 @@ namespace LaQueue.Brokers.Queues
     public interface IQueueBroker
     {
         void RegisterEventListener(Func<Message, CancellationToken, Task> eventHandler, string eventName);
+        ValueTask EnqueueMessageAsync(Message message, string eventName);
     }
 }
