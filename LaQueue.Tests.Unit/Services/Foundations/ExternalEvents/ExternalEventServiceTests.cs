@@ -48,6 +48,12 @@ namespace LaQueue.Tests.Unit.Services.Foundations.ExternalEvents
                         .AreEqual;
         }
 
+        private Expression<Func<Message, bool>> SameMessageAs(Message expectedMessage)
+        {
+            return actualMessage =>
+                this.compareLogic.Compare(expectedMessage, actualMessage).AreEqual;
+        }
+
         private static Message CreateObjectMessage(object @object)
         {
             string serializedStudent = JsonConvert.SerializeObject(@object);

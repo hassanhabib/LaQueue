@@ -11,6 +11,7 @@ namespace LaQueue.Services.Foundations.ExternalEvents
 {
     public interface IExternalEventService
     {
+        ValueTask<T> PublishEventAsync<T>(T @event, string eventName);
         void RegisterEventHandler<T>(Func<T, ValueTask> eventHandler, string eventName);
     }
 }
