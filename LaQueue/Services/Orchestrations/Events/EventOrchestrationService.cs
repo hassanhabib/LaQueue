@@ -31,8 +31,16 @@ namespace LaQueue.Services.Orchestrations.Events
             this.connectionString = connectionString;
         }
 
-        public async ValueTask<T> PublishEventAsync<T>(T @event, string eventName) =>
-            await this.eventPublishService.PublishEventAsync(@event, eventName);
+        public async ValueTask<T> PublishEventAsync<T>(T @event, string eventName)
+        {
+            return this.connectionString switch
+            {
+                { } when this.connectionString.Contains("servicebus") =>
+                    await this.externalEventService.PublishEventAsync(@event, eventName),
+
+                _ => await this.eventPublishService.PublishEventAsync(@event, eventName)
+            };
+        }
 
         public void SubscribeEventHandler<T>(Func<T, ValueTask> eventHandler, string eventName) =>
             this.eventSubscriptionService.RegisterEventHandler(eventHandler, eventName);

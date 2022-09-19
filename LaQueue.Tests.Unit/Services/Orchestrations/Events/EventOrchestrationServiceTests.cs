@@ -29,5 +29,8 @@ namespace LaQueue.Tests.Unit.Services.Orchestrations.Events
 
         private static string GetRandomEventName() =>
             new MnemonicString().GetValue();
+
+        private static string GetRandomString() =>
+            new MnemonicString().GetValue();
     }
 }
