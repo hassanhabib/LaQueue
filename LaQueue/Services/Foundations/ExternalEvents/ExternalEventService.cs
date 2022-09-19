@@ -29,6 +29,11 @@ namespace LaQueue.Services.Foundations.ExternalEvents
             }, eventName);
         }
 
+        public ValueTask<T> PublishEventAsync<T>(T @event, string eventName)
+        {
+            throw new NotImplementedException();
+        }
+
         private static T MapTo<T>(Message message)
         {
             var stringifiedMessage =
