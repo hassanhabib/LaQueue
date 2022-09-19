@@ -8,6 +8,7 @@ using System;
 using System.Threading.Tasks;
 using LaQueue.Services.Foundations.EventPublishes;
 using LaQueue.Services.Foundations.EventSubscriptions;
+using LaQueue.Services.Foundations.ExternalEvents;
 
 namespace LaQueue.Services.Orchestrations.Events
 {
@@ -15,13 +16,19 @@ namespace LaQueue.Services.Orchestrations.Events
     {
         private readonly IEventPublishService eventPublishService;
         private readonly IEventSubscriptionService eventSubscriptionService;
+        private readonly IExternalEventService externalEventService;
+        private readonly string connectionString;
 
         public EventOrchestrationService(
+            string connectionString,
             IEventPublishService eventPublishService,
-            IEventSubscriptionService eventSubscriptionService)
+            IEventSubscriptionService eventSubscriptionService,
+            IExternalEventService externalEventService)
         {
             this.eventPublishService = eventPublishService;
             this.eventSubscriptionService = eventSubscriptionService;
+            this.externalEventService = externalEventService;
+            this.connectionString = connectionString;
         }
 
         public async ValueTask<T> PublishEventAsync<T>(T @event, string eventName) =>
