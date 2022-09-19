@@ -35,7 +35,7 @@ namespace LaQueue.Tests.Unit.Services.Foundations.ExternalEvents
             };
 
             // when
-            object actualObjectEvent = 
+            object actualObjectEvent =
                 await this.externalEventService.PublishEventAsync<object>(
                     inputObjectEvent,
                     inputEventName);

@@ -4,8 +4,8 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
-using System.Linq.Expressions;
 using System;
+using System.Linq.Expressions;
 using System.Text;
 using KellermanSoftware.CompareNetObjects;
 using LaQueue.Brokers.Queues;
@@ -33,8 +33,8 @@ namespace LaQueue.Tests.Unit.Services.Foundations.ExternalEvents
         }
 
         private static string GetRandomEventName() =>
-            new MnemonicString().GetValue();        
-        
+            new MnemonicString().GetValue();
+
         private static string GetRandomObject() =>
             new MnemonicString().GetValue();
 
