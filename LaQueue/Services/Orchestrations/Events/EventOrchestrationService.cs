@@ -53,8 +53,5 @@ namespace LaQueue.Services.Orchestrations.Events
                 this.eventSubscriptionService.RegisterEventHandler(eventHandler, eventName);
             }
         }
-
-        public void RunSubscriptionServer() =>
-            this.eventSubscriptionService.RunSubscriptionServer();
     }
 }

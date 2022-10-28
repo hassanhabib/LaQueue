@@ -7,8 +7,6 @@
   <ItemGroup>
     <PackageReference Include="RESTFulSense" Version="2.8.0" />
 	<PackageReference Include="Microsoft.Azure.ServiceBus" Version="5.2.0" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\LaQueue.Web\LaQueue.Web.csproj" />
+	<PackageReference Include="WireMock.Net" Version="1.5.8" />
   </ItemGroup>
 </Project>

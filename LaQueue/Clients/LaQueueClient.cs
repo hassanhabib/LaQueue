@@ -42,7 +42,6 @@ namespace LaQueue.Clients
         public void SubscribeEventHandler<T>(Func<T, ValueTask> eventHandler, string eventName)
         {
             this.eventOrchestrationService.SubscribeEventHandler(eventHandler, eventName);
-            this.eventOrchestrationService.RunSubscriptionServer();
         }
     }
 }

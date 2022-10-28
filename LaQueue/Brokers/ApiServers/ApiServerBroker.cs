@@ -5,26 +5,39 @@
 // ---------------------------------------------------------------
 
 using System;
+using System.Net;
 using System.Threading.Tasks;
-using LaQueue.Web.Clients;
+using Newtonsoft.Json;
+using WireMock.RequestBuilders;
+using WireMock.ResponseBuilders;
+using WireMock.Server;
 
 namespace LaQueue.Brokers.ApiServers
 {
     public class ApiServerBroker : IApiServerBroker
     {
-        private readonly ApiClient apiClient;
-        private readonly string connectionString;
+        private readonly WireMockServer wireMockServer;
 
-        public ApiServerBroker(string connectionString)
+        public ApiServerBroker(string connectionString) =>
+            this.wireMockServer = WireMockServer.Start(connectionString);
+
+        public void RegisterEventListener<T>(Func<T, ValueTask> eventHandler, string eventName)
         {
-            this.apiClient = new ApiClient();
-            this.connectionString = connectionString;
+            this.wireMockServer
+                .Given(Request.Create()
+                    .WithPath(eventName)
+                    .UsingPost())
+                .RespondWith(Response.Create()
+                    .WithStatusCode(HttpStatusCode.OK)
+                    .WithBody(async (requestMessage) =>
+                    {
+                        T request = JsonConvert
+                            .DeserializeObject<T>(requestMessage.Body);
+                        
+                        await eventHandler(request);
+
+                        return requestMessage.Body;
+                    }));
         }
-
-        public void RegisterEventListener<T>(Func<T, ValueTask> eventHandler, string eventName) =>
-            this.apiClient.CreatePublisherEndpoint(eventHandler, eventName);
-
-        public void RunServer() =>
-            this.apiClient.RunApiServer(url: connectionString);
     }
 }

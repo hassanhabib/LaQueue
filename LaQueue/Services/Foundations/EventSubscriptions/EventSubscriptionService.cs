@@ -19,8 +19,5 @@ namespace LaQueue.Services.Foundations.EventSubscriptions
 
         public void RegisterEventHandler<T>(Func<T, ValueTask> eventHandler, string eventName) =>
             this.apiServerBroker.RegisterEventListener(eventHandler, eventName);
-
-        public void RunSubscriptionServer() =>
-            this.apiServerBroker.RunServer();
     }
 }

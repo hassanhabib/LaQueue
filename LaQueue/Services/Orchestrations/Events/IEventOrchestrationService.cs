@@ -13,6 +13,5 @@ namespace LaQueue.Services.Orchestrations.Events
     {
         ValueTask<T> PublishEventAsync<T>(T @event, string eventName);
         void SubscribeEventHandler<T>(Func<T, ValueTask> eventHandler, string eventName);
-        void RunSubscriptionServer();
     }
 }
