@@ -23,11 +23,19 @@ namespace LaQueue.Clients
         public LaQueueClient(string connectionString)
         {
             IQueueBroker queueBroker = new QueueBroker(connectionString);
-            IApiBroker apiBroker = new ApiBroker(connectionString);
-            IApiServerBroker apiServerBroker = new ApiServerBroker(connectionString);
+            IEventPublishService eventPublishService = null;
+            IEventSubscriptionService eventSubscriptionService = null;
+
+            if (connectionString.Contains("localhost") is true)
+            {
+                IApiBroker apiBroker = new ApiBroker(connectionString);
+                IApiServerBroker apiServerBroker = new ApiServerBroker(connectionString);
+                eventPublishService = new EventPublishService(apiBroker);
+                eventSubscriptionService = new EventSubscriptionService(apiServerBroker);
+            }
+            
+           
             IExternalEventService externalEventService = new ExternalEventService(queueBroker);
-            IEventPublishService eventPublishService = new EventPublishService(apiBroker);
-            IEventSubscriptionService eventSubscriptionService = new EventSubscriptionService(apiServerBroker);
 
             this.eventOrchestrationService = new EventOrchestrationService(
                 connectionString,

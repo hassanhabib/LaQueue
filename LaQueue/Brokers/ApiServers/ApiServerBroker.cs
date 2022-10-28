@@ -25,7 +25,7 @@ namespace LaQueue.Brokers.ApiServers
         {
             this.wireMockServer
                 .Given(Request.Create()
-                    .WithPath(eventName)
+                    .WithPath($"/{eventName}")
                     .UsingPost())
                 .RespondWith(Response.Create()
                     .WithStatusCode(HttpStatusCode.OK)
