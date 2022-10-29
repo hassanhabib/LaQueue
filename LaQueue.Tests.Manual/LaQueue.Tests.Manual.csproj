@@ -7,8 +7,4 @@
     <Nullable>disable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\LaQueue.Web\LaQueue.Web.csproj" />
-  </ItemGroup>
-
 </Project>

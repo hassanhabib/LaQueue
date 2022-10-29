@@ -12,6 +12,5 @@ namespace LaQueue.Services.Foundations.EventSubscriptions
     public interface IEventSubscriptionService
     {
         void RegisterEventHandler<T>(Func<T, ValueTask> eventHandler, string eventName);
-        void RunSubscriptionServer();
     }
 }
